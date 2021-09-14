@@ -5,6 +5,8 @@
  */
 
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -44,11 +46,15 @@ public class FXMain extends Application {
         Label lbl1 = new Label("To Do Item");
         lbl1.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         TextField txt = new TextField();
-        txt.setPrefWidth(400);   
+        txt.setPrefWidth(100);   
         
         Label lbl2 = new Label("Due Date (mm/dd/yyyy)");
         lbl2.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         TextField txtDate = new TextField();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDateTime now = LocalDateTime.now();
+        txtDate.setText(dtf.format(now));
+        txtDate.setPrefWidth(50);
         
         //txtDate.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("mm/dd/yyyy")));
         txtDate.setPrefWidth(50);   
@@ -64,7 +70,7 @@ public class FXMain extends Application {
         
         Button btn1 = new Button();
         btn1.setText("Add");
-        btn1.setPrefWidth(100);
+        btn1.setPrefWidth(150);
         Label lblResults = new Label();
         
         btn1.setOnAction(new EventHandler<ActionEvent>() {
@@ -131,6 +137,7 @@ public class FXMain extends Application {
         
         Button btn2 = new Button();
         btn2.setText("Delete");
+        btn2.setPrefWidth(150);
         btn2.setOnAction(new EventHandler<ActionEvent>() {
             
             @Override
@@ -163,7 +170,7 @@ public class FXMain extends Application {
         
         grid.add(lbl1, 0, 0);              
         grid.add(txt, 0, 1,3,1);
-        grid.add(lbl2, 0, 2);      
+        grid.add(lbl2, 0, 2,3,1);      
         grid.add(txtDate, 0, 3,3,1);
         grid.add(lbl3, 0, 4);      
         grid.add(txtDesc, 0, 5,3,1);   
