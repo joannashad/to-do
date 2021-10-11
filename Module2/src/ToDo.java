@@ -13,37 +13,65 @@ import java.util.ArrayList;
  * @author joann
  */
 public class ToDo {
-  private String strToDo = "";
+  private String name = "";
   private ArrayList<ToDo> toDoList;
-  private String  toDoDate =  "";
-  private String strDesc="";
-  
-  public String Name(){    
-    return strToDo;
-}
-  public String Date(){
-      return toDoDate;
+  private String  dueDate =  "";
+  private String description="";
+  private int id;  
+ 
+  public ToDo(){
   }
   
-  public String Description(){    
-    return strDesc;
+  public ToDo(String todo,  String strdesc){
+      name=todo;
+      //dueDate = ;
+      description = strdesc;
+  }
+public int getId() {  
+    return id;  
+}  
+public void setId(int id) {  
+    this.id = id;  
+}  
+public String getName(){    
+    return name;
 }
+  public String getDate(){
+      return dueDate;
+  }
+  
+  public String getDescription(){    
+    return description;
+} 
+public void setName(String strname){    
+    name = strname;
+}
+  public void setDate(String strdate){
+      dueDate = strdate;
+  }
+  
+  public void setDescription(String strdesc){    
+    description = strdesc;
+}
+//  public String Name(){    
+//    return strToDo;
+//}
+//  public String Date(){
+//      return toDoDate;
+//  }
+//  
+//  public String Description(){    
+//    return strDesc;
+//}
   public void setList(ArrayList<ToDo> td){
      toDoList = td; 
   }
-  public String getName(){
-      return strToDo;
-  }
+
   public void addToDo(){
       if(toDoList==null){
           toDoList = new ArrayList<ToDo>();
       }
       toDoList.add(this);
-  }
-  public ToDo(String todo, String tdDate, String desc){
-      strToDo=todo;
-      toDoDate = tdDate;
-      strDesc = desc;
   }
   public ArrayList<ToDo> getToDoList() {
       return toDoList;
@@ -52,7 +80,7 @@ public class ToDo {
       toDoList.remove(this);
   }
   public String toString(){
-      return this.Date() + " | " + this.Name() + " | " + this.Description() ;
+      return this.getDate() + " | " + this.getName() + " | " + this.getDescription() ;
   }
       public ToDo fromString(String string)
     {

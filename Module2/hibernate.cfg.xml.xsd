@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 5.3//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-5.3.dtd">  
+  
+<hibernate-configuration>  
+  
+    <session-factory>  
+        <property name="hbm2ddl.auto">update</property>  
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>  
+        <property name="connection.url">jdbc:mysql://localhost/Trivia</property>  
+        <property name="connection.username">dbUser</property>  
+        <property name="connection.password">secret</property>  
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>  
+    <mapping resource="ToDo.hbm.xml.xsd"/>  
+    </session-factory>  
+  
+</hibernate-configuration>  
